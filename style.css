@@ -428,3 +428,101 @@ button {
     }
 
     }
+
+/* =========================
+   5 PHOTO FRAME
+========================= */
+
+.photo {
+    position: fixed;
+
+    width: 65px;
+    height: 65px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    border: 3px solid white;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.2);
+
+    z-index: 1;
+}
+
+
+/* TOP LEFT */
+
+.photo1 {
+    top: 15px;
+    left: 15px;
+
+    transform: rotate(-10deg);
+}
+
+
+/* TOP CENTER */
+
+.photo2 {
+    top: 10px;
+    left: 50%;
+
+    transform: translateX(-50%) rotate(5deg);
+}
+
+
+/* TOP RIGHT */
+
+.photo3 {
+    top: 15px;
+    right: 15px;
+
+    transform: rotate(10deg);
+}
+
+
+/* BOTTOM LEFT */
+
+.photo4 {
+    bottom: 15px;
+    left: 15px;
+
+    transform: rotate(8deg);
+}
+
+
+/* BOTTOM RIGHT */
+
+.photo5 {
+    bottom: 15px;
+    right: 15px;
+
+    transform: rotate(-8deg);
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+
+    .photo {
+        width: 52px;
+        height: 52px;
+
+        border-width: 2px;
+    }
+
+    .photo1,
+    .photo3 {
+        top: 10px;
+    }
+
+    .photo4,
+    .photo5 {
+        bottom: 10px;
+    }
+
+}
