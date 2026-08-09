@@ -118,3 +118,77 @@ noBtn.addEventListener("touchstart", (event) => {
     moveNoButton();
 
 });
+
+// =========================
+// LETTERS
+// =========================
+
+const letters = document.getElementById("letters");
+
+const envelopes =
+    document.querySelectorAll(".envelope");
+
+const letterModal =
+    document.getElementById("letterModal");
+
+const letterMessage =
+    document.getElementById("letterMessage");
+
+const closeLetter =
+    document.getElementById("closeLetter");
+
+
+// When YES is clicked
+yesBtn.addEventListener("click", () => {
+
+    response.innerHTML =
+        "YAAAAAY! 🥹💗<br>" +
+        "Thank you for forgiving me!";
+
+    yesBtn.innerHTML =
+        "Thank you! 💗";
+
+    noBtn.style.display = "none";
+
+    // Show envelopes
+    letters.style.display = "block";
+
+});
+
+
+// Open envelope
+envelopes.forEach((envelope) => {
+
+    envelope.addEventListener("click", () => {
+
+        const message =
+            envelope.dataset.message;
+
+        letterMessage.innerText =
+            message;
+
+        letterModal.classList.add("show");
+
+    });
+
+});
+
+
+// Close letter
+closeLetter.addEventListener("click", () => {
+
+    letterModal.classList.remove("show");
+
+});
+
+
+// Close if tapping outside the letter
+letterModal.addEventListener("click", (event) => {
+
+    if (event.target === letterModal) {
+
+        letterModal.classList.remove("show");
+
+    }
+
+});
