@@ -39,11 +39,70 @@
 
         </div>
 
-        <p id="response"></p>
+        <!-- LETTERS -->
+
+        <div id="letters" class="letters">
+
+            <h2>There are a few things I want to tell you... 💌</h2>
+
+            <div class="envelope-container">
+
+                <button class="envelope"
+                    data-message="I'm really sorry for what I did. I know I may have hurt you, and I genuinely regret it.">
+                    💌
+                    <span>Open Me</span>
+                </button>
+
+                <button class="envelope"
+                    data-message="I don't expect you to forget everything immediately. I just want you to know that I'm willing to make things right.">
+                    💌
+                    <span>Something I Want to Say</span>
+                </button>
+
+                <button class="envelope"
+                    data-message="I promise to learn from my mistakes and do better. You mean more to me than I sometimes know how to express.">
+                    💌
+                    <span>A Little Promise</span>
+                </button>
+
+                <button class="envelope"
+                    data-message="Thank you for taking the time to read this. Whatever happens, I'm grateful that I got the chance to tell you how I feel. ❤️">
+                    💌
+                    <span>Open This Last</span>
+                </button>
+
+            </div>
+
+        </div>
 
     </main>
+
+
+    <!-- LETTER POPUP -->
+
+    <div id="letterModal" class="modal">
+
+        <div class="letter">
+
+            <button id="closeLetter" class="close">
+                ×
+            </button>
+
+            <div class="paper">
+
+                <div class="paper-heart">
+                    💗
+                </div>
+
+                <p id="letterMessage"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
     <script src="script.js"></script>
 
 </body>
-</html>
