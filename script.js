@@ -46,7 +46,7 @@ noBtn.addEventListener("click", (event) => {
     const messages = [
         "Are you sure? 🥺",
         "Really? 😭",
-        "Pleaseee 🥹",
+        "Pleaseee 🥺",
         "Think again 😭",
         "One more chance? 🥺",
         "I'll do better 😭",
@@ -142,7 +142,7 @@ const closeLetter =
 yesBtn.addEventListener("click", () => {
 
     response.innerHTML =
-        "YAAAAAY! 🥹💗<br>" +
+        "YAAAAAY! TY TAGA BAWO<br>" +
         "Thank you for forgiving me!";
 
     yesBtn.innerHTML =
