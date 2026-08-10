@@ -1,9 +1,25 @@
+// =========================
+// GET ELEMENTS
+// =========================
+
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
+
 const response = document.getElementById("response");
-const buttonArea = document.querySelector(".button-area");
+
+const buttonArea =
+    document.querySelector(".button-area");
+
+const letters =
+    document.getElementById("letters");
+
+
+// =========================
+// VARIABLES
+// =========================
 
 let yesSize = 17;
+
 let noClicks = 0;
 
 
@@ -13,12 +29,40 @@ let noClicks = 0;
 
 yesBtn.addEventListener("click", () => {
 
-    response.innerHTML =
-        "YAAAAAY! 🥹💗<br>Thank you for forgiving me!";
+    // Show response if it exists
+    if (response) {
 
-    yesBtn.innerHTML = "Thank you! 💗";
+        response.innerHTML =
+            "YAAAAAY! 🥹💗<br>" +
+            "Thank you for forgiving me!";
 
-    noBtn.style.display = "none";
+    }
+
+
+    // Change YES button
+    yesBtn.innerHTML =
+        "Thank you! 💗";
+
+
+    // Hide NO
+    noBtn.style.display =
+        "none";
+
+
+    // Show letters
+    letters.style.display =
+        "block";
+
+
+    // Scroll to letters
+    setTimeout(() => {
+
+        letters.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }, 300);
 
 });
 
@@ -33,73 +77,122 @@ noBtn.addEventListener("click", (event) => {
 
     noClicks++;
 
+
     // Make YES bigger
+
     yesSize += 4;
 
-    yesBtn.style.fontSize = yesSize + "px";
+    yesBtn.style.fontSize =
+        yesSize + "px";
+
 
     yesBtn.style.padding =
         `${12 + noClicks}px ${22 + noClicks * 2}px`;
 
 
-    // Change NO text
+    // NO messages
+
     const messages = [
+
         "Are you sure? 🥺",
+
         "Really? 😭",
-        "Pleaseee 🥺",
+
+        "Pleaseee 🥹",
+
         "Think again 😭",
+
         "One more chance? 🥺",
+
         "I'll do better 😭",
+
         "Pretty please? 💗",
+
         "Don't say nooo 😭"
+
     ];
 
+
     noBtn.innerText =
-        messages[Math.min(noClicks - 1, messages.length - 1)];
+        messages[
+            Math.min(
+                noClicks - 1,
+                messages.length - 1
+            )
+        ];
 
 
-    // Move the NO button
+    // Move NO
+
     moveNoButton();
 
 });
 
 
 // =========================
-// MAKE NO BUTTON ESCAPE
+// MAKE NO ESCAPE
 // =========================
 
 function moveNoButton() {
 
-    const areaWidth = buttonArea.clientWidth;
-    const areaHeight = buttonArea.clientHeight;
+    const areaWidth =
+        buttonArea.clientWidth;
 
-    const buttonWidth = noBtn.offsetWidth;
-    const buttonHeight = noBtn.offsetHeight;
+    const areaHeight =
+        buttonArea.clientHeight;
 
-    // Keep button inside the area
+
+    const buttonWidth =
+        noBtn.offsetWidth;
+
+    const buttonHeight =
+        noBtn.offsetHeight;
+
+
     const padding = 10;
 
+
     const maxX =
-        areaWidth - buttonWidth - padding;
+        Math.max(
+            padding,
+            areaWidth -
+            buttonWidth -
+            padding
+        );
+
 
     const maxY =
-        areaHeight - buttonHeight - padding;
+        Math.max(
+            padding,
+            areaHeight -
+            buttonHeight -
+            padding
+        );
 
-    const minX = padding;
-    const minY = padding;
 
     const randomX =
-        Math.random() * (maxX - minX) + minX;
+        Math.random() *
+        (maxX - padding) +
+        padding;
+
 
     const randomY =
-        Math.random() * (maxY - minY) + minY;
+        Math.random() *
+        (maxY - padding) +
+        padding;
 
 
     noBtn.style.left =
-        randomX + buttonWidth / 2 + "px";
+        randomX +
+        buttonWidth / 2 +
+        "px";
+
 
     noBtn.style.top =
-        randomY + buttonHeight / 2 + "px";
+        randomY +
+        buttonHeight / 2 +
+        "px";
+
 
     noBtn.style.transform =
         "translate(-50%, -50%)";
@@ -111,52 +204,43 @@ function moveNoButton() {
 // MOBILE TOUCH
 // =========================
 
-noBtn.addEventListener("touchstart", (event) => {
+noBtn.addEventListener(
+    "touchstart",
+    (event) => {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    moveNoButton();
+        moveNoButton();
 
-});
+    },
+    { passive: false }
+);
+
 
 // =========================
 // LETTERS
 // =========================
 
-const letters = document.getElementById("letters");
-
 const envelopes =
     document.querySelectorAll(".envelope");
+
 
 const letterModal =
     document.getElementById("letterModal");
 
+
 const letterMessage =
     document.getElementById("letterMessage");
+
 
 const closeLetter =
     document.getElementById("closeLetter");
 
 
-// When YES is clicked
-yesBtn.addEventListener("click", () => {
+// =========================
+// OPEN LETTER
+// =========================
 
-    response.innerHTML =
-        "YAAAAAY! TY TAGA BAWO<br>" +
-        "Thank you for forgiving me!";
-
-    yesBtn.innerHTML =
-        "Thank you! 💗";
-
-    noBtn.style.display = "none";
-
-    // Show envelopes
-    letters.style.display = "block";
-
-});
-
-
-// Open envelope
 envelopes.forEach((envelope) => {
 
     envelope.addEventListener("click", () => {
@@ -164,8 +248,10 @@ envelopes.forEach((envelope) => {
         const message =
             envelope.dataset.message;
 
+
         letterMessage.innerText =
             message;
+
 
         letterModal.classList.add("show");
 
@@ -174,7 +260,10 @@ envelopes.forEach((envelope) => {
 });
 
 
-// Close letter
+// =========================
+// CLOSE LETTER
+// =========================
+
 closeLetter.addEventListener("click", () => {
 
     letterModal.classList.remove("show");
@@ -182,13 +271,101 @@ closeLetter.addEventListener("click", () => {
 });
 
 
-// Close if tapping outside the letter
-letterModal.addEventListener("click", (event) => {
+// =========================
+// CLOSE LETTER OUTSIDE
+// =========================
 
-    if (event.target === letterModal) {
+letterModal.addEventListener(
+    "click",
+    (event) => {
 
-        letterModal.classList.remove("show");
+        if (
+            event.target ===
+            letterModal
+        ) {
+
+            letterModal.classList.remove(
+                "show"
+            );
+
+        }
 
     }
+);
 
-});
+
+// =========================
+// SUNFLOWER
+// =========================
+
+const sunflowerBtn =
+    document.getElementById(
+        "sunflowerBtn"
+    );
+
+
+const sunflowerModal =
+    document.getElementById(
+        "sunflowerModal"
+    );
+
+
+const closeSunflower =
+    document.getElementById(
+        "closeSunflower"
+    );
+
+
+// =========================
+// OPEN SUNFLOWER
+// =========================
+
+sunflowerBtn.addEventListener(
+    "click",
+    () => {
+
+        sunflowerModal.classList.add(
+            "show"
+        );
+
+    }
+);
+
+
+// =========================
+// CLOSE SUNFLOWER
+// =========================
+
+closeSunflower.addEventListener(
+    "click",
+    () => {
+
+        sunflowerModal.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+// =========================
+// CLOSE SUNFLOWER OUTSIDE
+// =========================
+
+sunflowerModal.addEventListener(
+    "click",
+    (event) => {
+
+        if (
+            event.target ===
+            sunflowerModal
+        ) {
+
+            sunflowerModal.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
