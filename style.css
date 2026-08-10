@@ -10,7 +10,7 @@ body {
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     padding: 20px;
 
@@ -23,7 +23,9 @@ body {
         #fff5f8
     );
 
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+
 }
 
 .card {
