@@ -1,45 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        content="width=device-width, initial-scale=1.0">
 
     <title>I'm Sorry My EVEning 🥺</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
+
 <body>
-<!-- 10 PHOTO FRAME -->
 
-<img src="photo1.jpg" class="photo top-left" alt="Photo 1">
-<img src="photo2.jpg" class="photo top-middle" alt="Photo 2">
-<img src="photo3.jpg" class="photo top-right" alt="Photo 3">
 
-<img src="photo4.jpg" class="photo left-upper" alt="Photo 4">
-<img src="photo5.jpg" class="photo left-lower" alt="Photo 5">
+    <!-- =========================
+         10 PHOTOS
+    ========================= -->
 
-<img src="photo6.jpg" class="photo right-upper" alt="Photo 6">
-<img src="photo7.jpg" class="photo right-lower" alt="Photo 7">
+    <img src="photo1.jpg"
+         class="photo top-left"
+         alt="Photo 1">
 
-<img src="photo8.jpg" class="photo bottom-left" alt="Photo 8">
-<img src="photo9.jpg" class="photo bottom-middle" alt="Photo 9">
-<img src="photo10.jpg" class="photo bottom-right" alt="Photo 10">
+    <img src="photo2.jpg"
+         class="photo top-middle"
+         alt="Photo 2">
+
+    <img src="photo3.jpg"
+         class="photo top-right"
+         alt="Photo 3">
+
+
+    <img src="photo4.jpg"
+         class="photo left-upper"
+         alt="Photo 4">
+
+    <img src="photo5.jpg"
+         class="photo left-lower"
+         alt="Photo 5">
+
+
+    <img src="photo6.jpg"
+         class="photo right-upper"
+         alt="Photo 6">
+
+    <img src="photo7.jpg"
+         class="photo right-lower"
+         alt="Photo 7">
+
+
+    <img src="photo8.jpg"
+         class="photo bottom-left"
+         alt="Photo 8">
+
+    <img src="photo9.jpg"
+         class="photo bottom-middle"
+         alt="Photo 9">
+
+    <img src="photo10.jpg"
+         class="photo bottom-right"
+         alt="Photo 10">
+
+
+
+    <!-- =========================
+         MAIN CARD
+    ========================= -->
+
     <main class="card">
 
-        <div class="heart">💗</div>
 
-        <h1>I'm Sorry my EVEning 🥺</h1>
+        <div class="heart">
+            💗
+        </div>
+
+
+        <h1>
+            I'm Sorry my EVEning 🥺
+        </h1>
+
 
         <p class="message">
+
             I know I made a mistake.
+
             <br>
+
             I'm genuinely sorry.
+
         </p>
+
 
         <p class="question">
             Will you forgive me?
         </p>
+
+
+        <!-- BUTTONS -->
 
         <div class="button-area">
 
@@ -52,71 +113,208 @@
             </button>
 
         </div>
-<p id="response"></p>
-        <!-- LETTERS -->
+
+
+
+        <!-- =========================
+             LETTERS
+        ========================= -->
 
         <div id="letters" class="letters">
 
-            <h2>There are a few things I want to tell you... 💌</h2>
+
+            <h2>
+                There are a few things I want to tell you... 💌
+            </h2>
+
 
             <div class="envelope-container">
 
-                <button class="envelope"
+
+                <button
+                    class="envelope"
                     data-message="I'm really sorry for what I did. I know I may have hurt you, and I genuinely regret it.">
+
                     💌
-                    <span>Open Me</span>
+
+                    <span>
+                        Open Me
+                    </span>
+
                 </button>
 
-                <button class="envelope"
+
+                <button
+                    class="envelope"
                     data-message="I don't expect you to forget everything immediately. I just want you to know that I'm willing to make things right.">
+
                     💌
-                    <span>Something I Want to Say</span>
+
+                    <span>
+                        Something I Want to Say
+                    </span>
+
                 </button>
 
-                <button class="envelope"
+
+                <button
+                    class="envelope"
                     data-message="I promise to learn from my mistakes and do better. You mean more to me than I sometimes know how to express.">
+
                     💌
-                    <span>A Little Promise</span>
+
+                    <span>
+                        A Little Promise
+                    </span>
+
                 </button>
 
-                <button class="envelope"
+
+                <button
+                    class="envelope"
                     data-message="Thank you for taking the time to read this. Whatever happens, I'm grateful that I got the chance to tell you how I feel. ❤️">
+
                     💌
-                    <span>Open This Last</span>
+
+                    <span>
+                        Open This Last
+                    </span>
+
                 </button>
+
 
             </div>
 
+
+
+            <!-- =========================
+                 SUNFLOWER BUTTON
+            ========================= -->
+
+            <div class="sunflower-section">
+
+
+                <p class="sunflower-hint">
+                    I have one more thing for you... 👀
+                </p>
+
+
+                <button
+                    id="sunflowerBtn"
+                    class="sunflower-btn">
+
+                    <span class="sunflower-icon">
+                        🌻
+                    </span>
+
+                    <span>
+                        Click Me 💛
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
         </div>
+
+        <!-- END LETTERS -->
+
 
     </main>
 
 
-    <!-- LETTER POPUP -->
+
+    <!-- =========================
+         LETTER POPUP
+    ========================= -->
 
     <div id="letterModal" class="modal">
 
+
         <div class="letter">
 
-            <button id="closeLetter" class="close">
+
+            <button
+                id="closeLetter"
+                class="close">
+
                 ×
+
             </button>
 
+
             <div class="paper">
+
 
                 <div class="paper-heart">
                     💗
                 </div>
 
+
                 <p id="letterMessage"></p>
+
 
             </div>
 
+
         </div>
+
 
     </div>
 
 
+
+    <!-- =========================
+         SUNFLOWER POPUP
+    ========================= -->
+
+    <div
+        id="sunflowerModal"
+        class="sunflower-modal">
+
+
+        <div class="sunflower-popup">
+
+
+            <button
+                id="closeSunflower"
+                class="sunflower-close">
+
+                ×
+
+            </button>
+
+
+            <img
+                src="sunflower.png"
+                alt="A sunflower bouquet"
+                class="sunflower-image">
+
+
+            <h2>
+                For You 🌻
+            </h2>
+
+
+            <p>
+                A little something to make you smile. ❤️
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
     <script src="script.js"></script>
 
+
 </body>
+
+</html>
